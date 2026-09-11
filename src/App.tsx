@@ -13,11 +13,6 @@ import { Cover } from "./component/cover"
 import { LazyDiv } from "./component/lazyDiv"
 import HeartIcon from "./icons/heart-icon.svg?react"
 
-/**
- * 청첩장의 최상위 메인 앱 컴포넌트입니다.
- *
- * @returns {JSX.Element} 메인 애플리케이션 컴포넌트
- */
 export function App() {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -36,7 +31,6 @@ export function App() {
   }
 
   useEffect(() => {
-    // Intersection Observer를 이용해 스크롤 시 카드가 페이드인 되도록 설정합니다.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -45,14 +39,10 @@ export function App() {
           }
         })
       },
-      {
-        threshold: 0.1,
-      },
+      { threshold: 0.1 },
     )
 
-    const targets = document.querySelectorAll(
-      ".card, .card-group, .footer",
-    )
+    const targets = document.querySelectorAll(".card, .card-group, .footer")
     targets.forEach((target) => observer.observe(target))
 
     return () => {
@@ -64,10 +54,14 @@ export function App() {
     <div className="background">
       <BgEffect />
 
-      {/* 배경음악 오디오 태그 (GitHub Pages base 경로 반영) */}
-      <audio ref={audioRef} src={`${import.meta.env.BASE_URL}music.mp3`} loop />
+      {/* 배경음악: public/music.mp3 → GitHub Pages 경로 반영 */}
+      <audio
+        ref={audioRef}
+        src={`${import.meta.env.BASE_URL}music.mp3`}
+        loop
+      />
 
-      {/* 음악 재생/정지 플로팅 버튼 */}
+      {/* 음악 재생/정지 버튼 */}
       <button
         onClick={togglePlay}
         style={{
