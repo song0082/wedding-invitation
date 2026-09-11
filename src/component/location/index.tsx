@@ -23,7 +23,7 @@ export const Location = () => {
         <Map />
       </LazyDiv>
 
-      {/* 대중교통 및 자가용 안내 섹션 */}
+     {/* 대중교통 및 자가용 안내 섹션 */}
     <LazyDiv className="card location">
       {/* 대중교통 안내 */}
       <div className="location-info">
@@ -56,5 +56,3 @@ export const Location = () => {
         </div>
       </div>
     </LazyDiv>
-  </>
-);
