@@ -5,8 +5,7 @@ export const BgEffect = () => {
   const [snowflakes, setSnowflakes] = useState<number[]>([])
 
   useEffect(() => {
-    // 눈송이 개수 설정
-    const flakes = Array.from({ length: 30 }, (_, index) => index)
+    const flakes = Array.from({ length: 25 }, (_, index) => index)
     setSnowflakes(flakes)
   }, [])
 
@@ -18,10 +17,10 @@ export const BgEffect = () => {
           className="snowflake"
           style={{
             left: `${Math.random() * 100}vw`,
-            animationDuration: `${Math.random() * 3 + 2}s`,
+            animationDuration: `${Math.random() * 4 + 3}s`,
             animationDelay: `${Math.random() * 5}s`,
-            opacity: Math.random(),
-            transform: `scale(${Math.random() * 0.7 + 0.3})`,
+            opacity: Math.random() * 0.7 + 0.3,
+            fontSize: `${Math.random() * 0.8 + 0.8}rem`,
           }}
         >
           ❄
