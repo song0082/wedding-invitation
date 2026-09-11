@@ -30,7 +30,6 @@ const NaverMap = () => {
   const naver = useNaver()
   const kakao = useKakao()
   const ref = useRef<HTMLDivElement>(null)
-
   // 모바일에서 스크롤 중 지도가 조작되는 것을 방지하기 위한 잠금 상태
   const [locked, setLocked] = useState(true)
   const [showLockMessage, setShowLockMessage] = useState(false)
@@ -106,9 +105,8 @@ const NaverMap = () => {
           >
             {showLockMessage && (
               <div className="lock-message">
-                <LockIcon /> 자물쇠 버튼을 눌러
-                <br />
-                터치 잠금 해제 후 확대 및 이동해 주세요.
+                <LockIcon /> 자물쇠 버튼을 눌러 <br /> 터치 잠금 해제 후 확대 및
+                이동해 주세요.
               </div>
             )}
           </div>
@@ -151,8 +149,7 @@ const NaverMap = () => {
             }
           }}
         >
-          <img src={nmapIcon} alt="naver-map-icon" />
-          네이버 지도
+          <img src={nmapIcon} alt="naver-map-icon" /> 네이버 지도
         </button>
 
         {/* 카카오 내비 연동 */}
@@ -178,8 +175,7 @@ const NaverMap = () => {
             }
           }}
         >
-          <img src={knaviIcon} alt="kakao-navi-icon" />
-          카카오 내비
+          <img src={knaviIcon} alt="kakao-navi-icon" /> 카카오 내비
         </button>
 
         {/* 티맵 연동 */}
@@ -203,12 +199,9 @@ const NaverMap = () => {
             }
           }}
         >
-          <img src={tmapIcon} alt="t-map-icon" />
-          티맵
+          <img src={tmapIcon} alt="t-map-icon" /> 티맵
         </button>
       </div>
-    </button>
-        </div>
-      </>
-    );
-  };
+    </>
+  )
+}
