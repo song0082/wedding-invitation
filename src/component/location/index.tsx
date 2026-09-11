@@ -57,4 +57,5 @@ export const Location = () => {
       </div>
     </LazyDiv>
   </>
-);
+  );
+}
