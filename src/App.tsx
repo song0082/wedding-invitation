@@ -64,8 +64,8 @@ export function App() {
     <div className="background">
       <BgEffect />
 
-      {/* 배경음악 오디오 태그 (public 폴더에 music.mp3 파일 필요) */}
-      <audio ref={audioRef} src="/music.mp3" loop />
+      {/* 배경음악 오디오 태그 (GitHub Pages base 경로 반영) */}
+      <audio ref={audioRef} src={`${import.meta.env.BASE_URL}music.mp3`} loop />
 
       {/* 음악 재생/정지 플로팅 버튼 */}
       <button
