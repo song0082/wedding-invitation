@@ -95,7 +95,7 @@ export const BRIDE_INFO = [
 // 신랑 정보 설정
 export const GROOM_FULLNAME = "송우남"
 export const GROOM_FIRSTNAME = "우남"
-export const GROOM_TITLE = "차남"
+export const GROOM_TITLE = "장남"
 export const GROOM_FATHER = "송순배"
 export const GROOM_MOTHER = "안인숙"
 
