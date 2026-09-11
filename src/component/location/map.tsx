@@ -207,4 +207,8 @@ const NaverMap = () => {
           티맵
         </button>
       </div>
-    }
+    </button>
+        </div>
+      </>
+    );
+  };
