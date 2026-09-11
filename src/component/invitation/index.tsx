@@ -25,24 +25,26 @@ import { useState } from "react"
  */
 export const Invitation = () => {
   const contactModalState = useState(false)
+
   return (
     <>
       <LazyDiv className="card invitation">
         <h2 className="english">Invitation</h2>
-
         <div className="break" />
 
         {/* 초대 문구 */}
-        <div className="content">싱그러운 여름 향기 가득한 날</div>
-        <div className="content">소중한 분들을 모시고</div>
-        <div className="content">사랑의 약속을 하려고 합니다.</div>
+        <div className="content">찬 바람이 부는 하얀 겨울,</div>
+        <div className="content">혼자였다면 시렸을 이 계절에</div>
+        <div className="content">소중한 분들을 초대합니다.</div>
         <div className="break" />
-        <div className="content">햇살이 뜨거울 땐 가려주고,</div>
-        <div className="content">비가 오면 우산이 되어주는</div>
-        <div className="content">부부가 되겠습니다.</div>
+        <div className="content">눈이 내릴 때면 늘 생각나는 소중한 사람과</div>
+        <div className="content">함께 새로운 인생의 계절을 시작하려 합니다.</div>
         <div className="break" />
-        <div className="content">기쁜날 함께 하시어</div>
-        <div className="content">저희의 앞날을 축복해 주세요.</div>
+        <div className="content">각자의 겨울을 지나 마침내 하나가 된 저희 두 사람이</div>
+        <div className="content">서로의 온기가 되어 따뜻한 봄을 향해 나아갑니다.</div>
+        <div className="break" />
+        <div className="content">1월의 어느 날, 저희가 맞이할 포근한 첫날을</div>
+        <div className="content">귀한 걸음으로 함께 축복해 주세요.</div>
 
         <div className="break" />
 
@@ -54,6 +56,7 @@ export const Invitation = () => {
           </span>{" "}
           {GROOM_FULLNAME}
         </div>
+
         {/* 혼주 및 신부 정보 */}
         <div className="name">
           {BRIDE_FATHER} · {BRIDE_MOTHER}
@@ -88,7 +91,6 @@ export const Invitation = () => {
             </div>
           </div>
         </div>
-
         <div className="content">
           {/* 신랑측 연락처 */}
           <div className="contact-info">
@@ -117,6 +119,7 @@ export const Invitation = () => {
               ),
             )}
           </div>
+
           {/* 신부측 연락처 */}
           <div className="contact-info">
             {BRIDE_INFO.filter(({ phone }) => !!phone).map(
