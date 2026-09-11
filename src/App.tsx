@@ -11,7 +11,6 @@ import { Modal } from "./component/modal"
 import { ShareButton } from "./component/shareButton"
 import { Cover } from "./component/cover"
 import { LazyDiv } from "./component/lazyDiv"
-import { GROOM_NAME, BRIDE_NAME } from "./const"
 import HeartIcon from "./icons/heart-icon.svg?react"
 
 /**
@@ -103,7 +102,7 @@ export function App() {
         </div>
         <LazyDiv className="footer">
           <div>
-            {GROOM_NAME} <HeartIcon className="icon text-theme-color" /> {BRIDE_NAME}
+            송우남 <HeartIcon className="icon text-theme-color" /> 이시바시레이코 (石橋怜子)
           </div>
           <div className="break" />
           <ShareButton />
