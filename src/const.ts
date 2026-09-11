@@ -72,6 +72,7 @@ export const BRIDE_FULLNAME = "이시바시레이코 (石橋怜子)"
 export const BRIDE_FIRSTNAME = "레이코 (怜子)"
 export const BRIDE_TITLE = "장녀"
 export const BRIDE_FATHER = "이시바시요시히코 (石橋芳彦)"
+export const BRIDE_MOTHER = "";
 
 /**
  * 신부측 연락처 및 계좌 정보
