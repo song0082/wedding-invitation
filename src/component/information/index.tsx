@@ -120,6 +120,18 @@ export const Information = () => {
           </LazyDiv>
         </div>
       </section>
-    );
+    )
   }
-};
+
+  return (
+    <section className="section information">
+      <div className="inner">
+        <LazyDiv className="card information">
+          <Information2 />
+          <div className="break" />
+          <AttendanceInfo />
+        </LazyDiv>
+      </div>
+    </section>
+  )
+}
