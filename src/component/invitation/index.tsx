@@ -6,15 +6,15 @@ import {
   GROOM_FULLNAME,
   GROOM_MOTHER_NAME,
 } from "../../const"
-import { useModal } from "../../hook/useModal"
 import { LazyDiv } from "../lazyDiv"
-import "./invitation.scss"
 
 export const Invitation = () => {
-  const { openModal } = useModal()
-
   const handleContactClick = () => {
-    openModal("contact")
+    // 연락하기 버튼 클릭 시 모달 열기 (전역 함수 활용)
+    const modalButton = document.querySelector(".contact-button") as HTMLElement
+    if (modalButton) {
+      modalButton.click()
+    }
   }
 
   return (
