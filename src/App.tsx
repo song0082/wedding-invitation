@@ -91,7 +91,6 @@ export function App() {
         </div>
         <div className="card-group">
           <Information />
-          {/* 방명록 컴포넌트 제거됨 */}
         </div>
         <LazyDiv className="footer">
           <div>
