@@ -20,26 +20,26 @@ export const Invitation = () => {
   return (
     <>
       <style>{`
-        .invitation-card-custom {
+        .card.invitation {
           padding: 20px 20px !important;
           margin-bottom: 20px;
         }
-        .invitation-card-custom h2 {
+        .card.invitation h2 {
           margin-top: 0;
           margin-bottom: 12px;
         }
-        .invitation-card-custom .message {
+        .card.invitation .message {
           font-size: 0.9rem;
           line-height: 1.6;
           margin-bottom: 16px;
         }
-        .invitation-card-custom .parents-wrap {
+        .card.invitation .parents-wrap {
           font-size: 0.85rem;
           margin-bottom: 16px;
         }
       `}</style>
 
-      <LazyDiv className="card invitation invitation-card-custom">
+      <LazyDiv className="card invitation">
         <h2 className="english">Invitation</h2>
         
         <div className="message">
@@ -75,3 +75,5 @@ export const Invitation = () => {
     </>
   )
 }
+
+export default Invitation
