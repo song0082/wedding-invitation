@@ -51,14 +51,14 @@ export function App() {
     <div className="background">
       <BgEffect />
 
-      {/* 배경음악: public/music.mp3 → GitHub Pages 경로 반영 */}
+      {/* 배경음악 */}
       <audio
         ref={audioRef}
         src={`${import.meta.env.BASE_URL}music.mp3`}
         loop
       />
 
-      {/* 음악 재생/정지 버튼 */}
+      {/* 음악 버튼 */}
       <button
         onClick={togglePlay}
         style={{
@@ -78,7 +78,7 @@ export function App() {
       </button>
 
       <div className="card-view">
-        {/* 첫 화면 Cover를 카드 안에 넣어 크기 제어 */}
+        {/* Cover 카드 */}
         <div className="card cover-card">
           <Cover />
         </div>
