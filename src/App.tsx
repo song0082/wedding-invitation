@@ -6,7 +6,6 @@ import { Invitation } from "./component/invitation"
 import { Calendar } from "./component/calendar"
 import { Gallery } from "./component/gallery"
 import { Information } from "./component/information"
-import { Modal } from "./component/modal"
 import { ShareButton } from "./component/shareButton"
 import { Cover } from "./component/cover"
 import { LazyDiv } from "./component/lazyDiv"
@@ -100,7 +99,6 @@ export function App() {
           <ShareButton />
         </LazyDiv>
       </div>
-      <Modal />
     </div>
   )
 }
