@@ -110,10 +110,10 @@ body {
   padding: 40px 0;
 
   .card-view {
-    width: 600px;
+    width: 900px;
     text-align: center;
 
-    @media (max-width: 600px) {
+    @media (max-width: 900px) {
       width: 100vw;
       padding: 0 16px;
     }
@@ -126,20 +126,15 @@ body {
       margin-bottom: 20px;
       width: 100%;
 
-      /* PC 화면에서 2개의 카드가 나란히 예쁘게 정렬되도록 수정 */
-      @media (min-width: 601px) {
+      /* PC 화면에서 2개의 카드가 한 줄에 깔끔하게 나란히 배치되도록 설정 */
+      @media (min-width: 901px) {
         flex-direction: row;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        background-color: var(--light-color);
-        border-radius: 12px;
-        overflow: hidden;
-
+        justify-content: center;
         opacity: 0;
         &.lazy-active {
           animation-name: lazy-fade-in;
           animation-duration: 1.5s;
           opacity: 1;
-          fill-opacity: 1;
         }
       }
 
@@ -153,18 +148,15 @@ body {
         justify-content: center;
         position: relative;
         border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 
-        @media (min-width: 601px) {
-          border: none;
-          width: 50%;
-          box-shadow: none;
+        @media (min-width: 901px) {
+          width: calc(50% - 10px);
           margin: 0;
         }
 
-        @media (max-width: 600px) {
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        @media (max-width: 900px) {
           margin-bottom: 15px;
-
           opacity: 0;
           &.lazy-active {
             animation-name: lazy-fade-in;
@@ -178,7 +170,7 @@ body {
     .footer {
       position: relative;
       background-color: var(--light-color);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       border-radius: 12px;
       padding: 24px;
       width: 100%;
