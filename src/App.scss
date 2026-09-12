@@ -1,56 +1,109 @@
-.background {
-  background-color: var(--theme-bg-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  min-width: 100vw;
+import { useEffect, useRef, useState } from "react"
+import "./App.scss"
+import { Location } from "./component/location"
+import { BgEffect } from "./component/bgEffect"
+import { Invitation } from "./component/invitation"
+import { Calendar } from "./component/calendar"
+import { Gallery } from "./component/gallery"
+import { Information } from "./component/information"
+import { ShareButton } from "./component/shareButton"
+import { Cover } from "./component/cover"
+import { LazyDiv } from "./component/lazyDiv"
 
-  .card-view {
-    width: 500px;
-    text-align: center;
+export function App() {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
-    @media (max-width: 500px) {
-      width: 100vw;
-    }
-
-    .card-group {
-      position: relative;
-
-      .card {
-        background-color: var(--light-color);
-        padding: 1rem;
-        border: 1px solid var(--light-grey-color);
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
-        margin: 0.5rem 0;
-
-        opacity: 0;
-        &.lazy-active {
-          animation-name: lazy-fade-in;
-          animation-duration: 3s;
-          opacity: 1;
-        }
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause()
+      } else {
+        audioRef.current.play().catch(() => {
+          console.log("자동 재생이 차단되었습니다.")
+        })
       }
-    }
-
-    .footer {
-      position: relative;
-      background-color: var(--light-color);
-      box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
-      margin: 0.5rem 0;
-      padding: 1rem;
-      opacity: 0;
-      &.lazy-active {
-        animation-name: lazy-fade-in;
-        animation-duration: 3s;
-        opacity: 1;
-      }
+      setIsPlaying(!isPlaying)
     }
   }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("lazy-active")
+          }
+        })
+      },
+      { threshold: 0.1 },
+    )
+
+    const targets = document.querySelectorAll(".card, .card-group, .footer")
+    targets.forEach((target) => observer.observe(target))
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
+
+  return (
+    <div className="background">
+      <BgEffect />
+
+      {/* 배경음악: public/music.mp3 → GitHub Pages 경로 반영 */}
+      <audio
+        ref={audioRef}
+        src={`${import.meta.env.BASE_URL}music.mp3`}
+        loop
+      />
+
+      {/* 음악 재생/정지 버튼 */}
+      <button
+        onClick={togglePlay}
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          zIndex: 100,
+          background: "var(--white-color)",
+          padding: "10px 15px",
+          borderRadius: "30px",
+          boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
+          cursor: "pointer",
+          fontSize: "0.9rem",
+        }}
+      >
+        {isPlaying ? "🔊 음악 끄기" : "🔈 BGM 재생"}
+      </button>
+
+      <div className="card-view">
+        {/* 첫 화면 Cover를 카드 안에 넣어 크기 제어 */}
+        <div className="card cover-card">
+          <Cover />
+        </div>
+
+        <div className="card-group">
+          <Invitation />
+          <Calendar />
+        </div>
+        <div className="card-group">
+          <Gallery />
+          <Location />
+        </div>
+        <div className="card-group">
+          <Information />
+        </div>
+        <LazyDiv className="footer">
+          <div>
+            송우남 ❤️ 이시바시레이코 (石橋怜子)
+          </div>
+          <div className="break" />
+          <ShareButton />
+        </LazyDiv>
+      </div>
+    </div>
+  )
 }
+
+export default App
