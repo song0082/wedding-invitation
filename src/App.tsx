@@ -1,106 +1,183 @@
-import { useEffect, useRef, useState } from "react"
-import "./App.scss"
-import { Location } from "./component/location"
-import { BgEffect } from "./component/bgEffect"
-import { Invitation } from "./component/invitation"
-import { Calendar } from "./component/calendar"
-import { Gallery } from "./component/gallery"
-import { Information } from "./component/information"
-import { ShareButton } from "./component/shareButton"
-import { Cover } from "./component/cover"
-import { LazyDiv } from "./component/lazyDiv"
+@use "./component/cover";
+@use "./component/invitation";
+@use "./component/button";
+@use "./component/bgEffect";
+@use "./component/calendar";
+@use "./component/gallery";
+@use "./component/location";
+@use "./component/information";
+@use "./component/guestbook";
+@use "./component/modal";
+@use "./component/shareButton";
 
-export function App() {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
+:root {
+  --theme-color: #ff8585;
+  --theme-bg-color: #ffe7e7;
+  --alt-color: #c28080;
+  --alt-bg-color: #f4f0f0;
+  --dark-color: #282c34;
+  --dark-grey-color: #d2d2d2;
+  --light-grey-color: #eaeaea;
+  --light-color: #f9f9f9;
+  --white-color: #ffffff;
+  --red-color: #ff0000;
 
-  const togglePlay = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause()
-      } else {
-        audioRef.current.play().catch(() => {
-          console.log("자동 재생이 차단되었습니다.")
-        })
-      }
-      setIsPlaying(!isPlaying)
-    }
+  font-family: "MapoGoldenPier";
+  font-size: 20px;
+  @media (max-width: 500px) {
+    font-size: 4vw;
   }
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("lazy-active")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
-    const targets = document.querySelectorAll(".card, .card-group, .footer")
-    targets.forEach((target) => observer.observe(target))
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [])
-
-  return (
-    <div className="background">
-      <BgEffect />
-
-      <audio
-        ref={audioRef}
-        src={`${import.meta.env.BASE_URL}music.mp3`}
-        loop
-      />
-
-      <button
-        onClick={togglePlay}
-        style={{
-          position: "fixed",
-          bottom: "20px",
-          right: "20px",
-          zIndex: 100,
-          background: "var(--white-color)",
-          padding: "10px 15px",
-          borderRadius: "30px",
-          boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
-          cursor: "pointer",
-          fontSize: "0.9rem",
-        }}
-      >
-        {isPlaying ? "🔊 음악 끄기" : "🔈 BGM 재생"}
-      </button>
-
-      <div className="card-view">
-        <div className="card">
-          <Cover />
-        </div>
-        
-        <div className="card-group">
-          <Invitation />
-          <Calendar />
-        </div>
-        <div className="card-group">
-          <Gallery />
-          <Location />
-        </div>
-        <div className="card-group">
-          <Information />
-        </div>
-        <LazyDiv className="footer">
-          <div>
-            송우남 ❤️ 이시바시레이코 (石橋怜子)
-          </div>
-          <div className="break" />
-          <ShareButton />
-        </LazyDiv>
-      </div>
-    </div>
-  )
 }
 
-export default App
+@media print {
+  body {
+    print-color-adjust: exact;
+  }
+}
+
+$colors: (
+  theme-color: var(--theme-color),
+  theme-bg-color: var(--theme-bg-color),
+  alt-color: var(--alt-color),
+  alt-bg-color: var(--alt-bg-color),
+  dark-color: var(--dark-color),
+  dark-grey-color: var(--dark-grey-color),
+  light-grey-color: var(--light-grey-color),
+  light-color: var(--light-color),
+  white-color: var(--white-color),
+  red-color: var(--red-color),
+);
+
+@each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color !important;
+  }
+  .bg-#{$name} {
+    background-color: $color !important;
+  }
+  .border-#{$name} {
+    border-color: $color !important;
+  }
+}
+
+@keyframes lazy-fade-in {
+  from {
+    opacity: 0;
+    z-index: 3;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    z-index: 3;
+    transform: translateY(0);
+  }
+}
+
+button {
+  font-family: "MapoGoldenPier";
+  font-size: 1rem;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+  &.modal-open {
+    overflow-y: hidden;
+  }
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--dark-color);
+  user-select: none;
+}
+
+.background {
+  background-color: var(--theme-bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+
+  .card-view {
+    width: 500px;
+    text-align: center;
+
+    @media (max-width: 500px) {
+      width: 100vw;
+    }
+
+    .card-group {
+      position: relative;
+
+      .card {
+        background-color: var(--light-color);
+        padding: 1rem;
+        border: 1px solid var(--light-grey-color);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+        margin: 0.5rem 0;
+
+        opacity: 0;
+        &.lazy-active {
+          animation-name: lazy-fade-in;
+          animation-duration: 3s;
+          opacity: 1;
+        }
+
+        @media print {
+          opacity: 1;
+          animation-name: inherit !important;
+          animation-duration: inherit !important;
+        }
+      }
+    }
+
+    .footer {
+      position: relative;
+      background-color: var(--light-color);
+      box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, 0.2);
+      margin: 0.5rem 0;
+      padding: 1rem;
+      opacity: 0;
+      &.lazy-active {
+        animation-name: lazy-fade-in;
+        animation-duration: 3s;
+        opacity: 1;
+      }
+
+      @media print {
+        opacity: 1;
+        animation-name: inherit !important;
+        animation-duration: inherit !important;
+      }
+    }
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--theme-color);
+  font-weight: normal;
+  &.english {
+    font-family: "Allura";
+  }
+}
+
+div.break {
+  height: 1rem;
+}
