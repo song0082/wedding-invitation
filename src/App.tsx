@@ -9,7 +9,6 @@ import { Information } from "./component/information"
 import { ShareButton } from "./component/shareButton"
 import { Cover } from "./component/cover"
 import { LazyDiv } from "./component/lazyDiv"
-import HeartIcon from "./icons/heart-icon.svg?react"
 
 export function App() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -93,7 +92,7 @@ export function App() {
         </div>
         <LazyDiv className="footer">
           <div>
-            송우남 <HeartIcon className="icon text-theme-color" /> 이시바시레이코 (石橋怜子)
+            송우남 ❤️ 이시바시레이코 (石橋怜子)
           </div>
           <div className="break" />
           <ShareButton />
