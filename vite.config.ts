@@ -12,7 +12,7 @@ import {
   WEDDING_DATE_FORMAT,
 } from "./src/const"
 
-const distFolder = "build"
+const distFolder = "dist"
 
 // https://vite.dev/config/
 export default defineConfig({
