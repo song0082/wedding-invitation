@@ -4,6 +4,17 @@ import App from "./App"
 import { ModalProvider } from "./component/modal"
 import { StoreProvider } from "./component/store"
 
+// 카카오 SDK 초기화 추가
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
+if (window.Kakao && !window.Kakao.isInitialized()) {
+  window.Kakao.init(import.meta.env.VITE_KAKAO_API_KEY);
+}
+
 // 애플리케이션의 루트 요소를 가져와서 렌더링을 시작합니다.
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
