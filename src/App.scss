@@ -54,25 +54,3 @@
     }
   }
 }
-
-/* Invitation 카드 배경 */
-.card.invitation {
-  background: url("/wedding-invitation/bg.png") no-repeat center center;
-  background-size: cover;
-}
-
-/* Cover 카드에도 동일한 배경 적용 */
-.card.cover-card {
-  background: url("/wedding-invitation/bg.png") no-repeat center center;
-  background-size: cover;
-}
-
-/* Cover 이미지 크기 조절 */
-.cover-card img {
-  max-width: 600px;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  margin: 0 auto;
-  display: block;
-}
