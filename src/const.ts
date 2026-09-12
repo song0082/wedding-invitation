@@ -69,7 +69,7 @@ export const KMAP_PLACE_ID = 419515546
 
 // 신부 정보 설정
 export const BRIDE_FULLNAME = "이시바시레이코 (石橋怜子)"
-export const BRIDE_FIRSTNAME = "레이코(怜子)"
+export const BRIDE_FIRSTNAME = "레이코"
 export const BRIDE_TITLE = "장녀"
 export const BRIDE_FATHER = "이시바시요시히코 (石橋芳彦)"
 export const BRIDE_MOTHER = "";
