@@ -78,7 +78,11 @@ export function App() {
       </button>
 
       <div className="card-view">
-        <Cover />
+        {/* 이 부분에 하얀색 배경(card)이 추가되었습니다 */}
+        <div className="card">
+          <Cover />
+        </div>
+        
         <div className="card-group">
           <Invitation />
           <Calendar />
