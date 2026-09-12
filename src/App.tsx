@@ -6,7 +6,6 @@ import { Invitation } from "./component/invitation"
 import { Calendar } from "./component/calendar"
 import { Gallery } from "./component/gallery"
 import { Information } from "./component/information"
-import { GuestBook } from "./component/guestbook"
 import { Modal } from "./component/modal"
 import { ShareButton } from "./component/shareButton"
 import { Cover } from "./component/cover"
@@ -92,7 +91,7 @@ export function App() {
         </div>
         <div className="card-group">
           <Information />
-          <GuestBook />
+          {/* 방명록 컴포넌트 제거됨 */}
         </div>
         <LazyDiv className="footer">
           <div>
