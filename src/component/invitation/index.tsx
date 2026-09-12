@@ -1,22 +1,10 @@
 import {
-  BRIDE_FATHER_NAME,
   BRIDE_FULLNAME,
-  BRIDE_MOTHER_NAME,
-  GROOM_FATHER_NAME,
   GROOM_FULLNAME,
-  GROOM_MOTHER_NAME,
 } from "../../const"
 import { LazyDiv } from "../lazyDiv"
 
 export const Invitation = () => {
-  const handleContactClick = () => {
-    // 연락하기 버튼 클릭 시 모달 열기 (전역 함수 활용)
-    const modalButton = document.querySelector(".contact-button") as HTMLElement
-    if (modalButton) {
-      modalButton.click()
-    }
-  }
-
   return (
     <>
       <style>{`
@@ -59,15 +47,18 @@ export const Invitation = () => {
 
         <div className="parents-wrap">
           <div className="parents">
-            {GROOM_FATHER_NAME} · {GROOM_MOTHER_NAME}의 장남 <b>{GROOM_FULLNAME}</b>
+            송순배 · 안인숙의 장남 <b>{GROOM_FULLNAME}</b>
           </div>
           <div className="parents" style={{ marginTop: "4px" }}>
-            {BRIDE_FATHER_NAME} · {BRIDE_MOTHER_NAME}의 장녀 <b>{BRIDE_FULLNAME}</b>
+            이시바시요시히코 (石橋芳彦) · 의 장녀 <b>{BRIDE_FULLNAME}</b>
           </div>
         </div>
 
         <div className="button-wrap">
-          <button className="contact-button" onClick={handleContactClick}>
+          <button className="contact-button" onClick={() => {
+            const btn = document.querySelector(".contact-button") as HTMLElement;
+            if (btn) btn.click();
+          }}>
             연락하기
           </button>
         </div>
