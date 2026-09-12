@@ -41,7 +41,7 @@ export const Invitation = () => {
         <div className="content">함께 새로운 인생의 계절을 시작하려 합니다.</div>
         <div className="break" />
         <div className="content">각자의 겨울을 지나 하나가 된 저희 두 사람,</div>
-        <div className="content">서로의 온기가 되어 따뜻한 봄을 향해 나아갑니다.</div>
+        <div className="content">두 사람의 사랑으로 따뜻한 계절을 시작합니다.</div>
         <div className="break" />
         <div className="content">1월의 어느날, 저희가 맞이할 포근한 첫날을</div>
         <div className="content">귀한 걸음으로 함께 축복해 주세요.</div>
