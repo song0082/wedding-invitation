@@ -51,14 +51,12 @@ export function App() {
     <div className="background">
       <BgEffect />
 
-      {/* 배경음악 */}
       <audio
         ref={audioRef}
         src={`${import.meta.env.BASE_URL}music.mp3`}
         loop
       />
 
-      {/* 음악 버튼 */}
       <button
         onClick={togglePlay}
         style={{
@@ -78,11 +76,10 @@ export function App() {
       </button>
 
       <div className="card-view">
-        {/* Cover 카드 */}
-        <div className="card cover-card">
+        <div className="card">
           <Cover />
         </div>
-
+        
         <div className="card-group">
           <Invitation />
           <Calendar />
