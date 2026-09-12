@@ -35,7 +35,7 @@ export const Invitation = () => {
         {/* 초대 문구 */}
         <div className="content">찬 바람이 부는 하얀 겨울,</div>
         <div className="content">혼자였다면 시렸을 이 계절에</div>
-        <div className="content">소중한 분드을 초대합니다.</div>
+        <div className="content">소중한 분들을 초대합니다.</div>
         <div className="break" />
         <div className="content">눈이 내릴 때면 늘 생각나는 소중한 사람과,</div>
         <div className="content">함께 새로운 인생의 계절을 시작하려 합니다.</div>
