@@ -1,16 +1,19 @@
-import { COVER_IMAGE } from "../images"
+import { COVER_IMAGE } from "../../images"
+import { LazyDiv } from "../lazyDiv"
 import "./cover.scss"
 
-export function Cover() {
+export const Cover = () => {
   return (
-    <div className="card cover-card">
+    <LazyDiv className="card cover-card">
       <div className="cover-date">
         2027 &nbsp;|&nbsp; 01 &nbsp;|&nbsp; 16 <br />
         <span>Saturday</span>
       </div>
+      
       <div className="cover-img-wrapper">
         <img src={COVER_IMAGE} alt="Cover" />
       </div>
+
       <div className="cover-description">
         <span className="english">Save the date for the wedding of</span>
         <div className="break" />
@@ -18,6 +21,6 @@ export function Cover() {
         <div className="wedding-date">2027년 1월 16일 토요일 오후 12시</div>
         <div className="wedding-location">안양 더스카이 웨딩홀</div>
       </div>
-    </div>
+    </LazyDiv>
   )
 }
