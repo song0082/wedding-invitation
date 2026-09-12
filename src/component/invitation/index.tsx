@@ -5,9 +5,9 @@ import {
   GROOM_FATHER_NAME,
   GROOM_FULLNAME,
   GROOM_MOTHER_NAME,
-} from "../const"
-import { useModal } from "../hook/useModal"
-import { LazyDiv } from "./lazyDiv"
+} from "../../const"
+import { useModal } from "../../hook/useModal"
+import { LazyDiv } from "../lazyDiv"
 import "./invitation.scss"
 
 export const Invitation = () => {
