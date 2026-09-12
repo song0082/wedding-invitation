@@ -5,7 +5,7 @@ export function Cover() {
   return (
     <div className="card cover-card">
       <div className="cover-date">
-        2027 $\mid$ 01 $\mid$ 16 <br />
+        2027 &nbsp;|&nbsp; 01 &nbsp;|&nbsp; 16 <br />
         <span>Saturday</span>
       </div>
       <div className="cover-img-wrapper">
