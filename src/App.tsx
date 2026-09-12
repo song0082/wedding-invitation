@@ -78,11 +78,11 @@ export function App() {
       </button>
 
       <div className="card-view">
-        {/* 이 부분에 하얀색 배경(card)이 추가되었습니다 */}
-        <div className="card">
+        {/* 첫 화면 Cover를 카드 안에 넣어 크기 제어 */}
+        <div className="card cover-card">
           <Cover />
         </div>
-        
+
         <div className="card-group">
           <Invitation />
           <Calendar />
